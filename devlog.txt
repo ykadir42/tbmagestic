@@ -1,22 +1,22 @@
-_________ ______     _______  _______  _______  _______    _______ __________________ _______ 
+_________ ______     _______  _______  _______  _______    _______ __________________ _______
 \__   __/(  ___ \   (       )(  ___  )(  ____ \(  ____ \  (  ____ \\__   __/\__   __/(  ____ \
    ) (   | (   ) )  | () () || (   ) || (    \/| (    \/  | (    \/   ) (      ) (   | (    \/
-   | |   | (__/ /   | || || || (___) || |      | (__      | (_____    | |      | |   | |      
-   | |   |  __ (    | |(_)| ||  ___  || | ____ |  __)     (_____  )   | |      | |   | |      
-   | |   | (  \ \   | |   | || (   ) || | \_  )| (              ) |   | |      | |   | |      
+   | |   | (__/ /   | || || || (___) || |      | (__      | (_____    | |      | |   | |
+   | |   |  __ (    | |(_)| ||  ___  || | ____ |  __)     (_____  )   | |      | |   | |
+   | |   | (  \ \   | |   | || (   ) || | \_  )| (              ) |   | |      | |   | |
    | |   | )___) )  | )   ( || )   ( || (___) || (____/\  /\____) |   | |   ___) (___| (____/\
    )_(   |/ \___/   |/     \||/     \|(_______)(_______/  \_______)   )_(   \_______/(_______/
-                                                                                              
-                                                                                                       
-			 ______   _______           _        _______  _______ 
+
+
+			 ______   _______           _        _______  _______
 			(  __  \ (  ____ \|\     /|( \      (  ___  )(  ____ \
 			| (  \  )| (    \/| )   ( || (      | (   ) || (    \/
-			| |   ) || (__    | |   | || |      | |   | || |      
-			| |   | ||  __)   ( (   ) )| |      | |   | || | ____ 
+			| |   ) || (__    | |   | || |      | |   | || |
+			| |   | ||  __)   ( (   ) )| |      | |   | || | ____
 			| |   ) || (       \ \_/ / | |      | |   | || | \_  )
 			| (__/  )| (____/\  \   /  | (____/\| (___) || (___) |
 			(______/ (_______/   \_/   (_______/(_______)(_______)
-                                                      
+
 jawadulK, queenieX, eugeneT, jenY -- 2017-12-15 13:00
 Brainstormed idea
 
@@ -35,6 +35,31 @@ Worked on script for pitch
 eugeneT, jenY -- 2017-12-18 13:18
 Finished script for pitch
 
-kadirJ, queenieX -- 2017-12-18 13:18
+jawadulK, queenieX -- 2017-12-18 13:18
 Fixed visual bugs in the demo page
 
+jawadulK, queenieX, jenY -- 2017-12-19 12:43
+Delivered pitch
+
+jawadulK, queenieX, eugeneT, jenY -- 2017-12-19 21:04
+Decided to switch idea
+New idea is finding deals nearby the user using the Groupon API
+
+jawadulK, queenieX, jenY -- 2017-12-20 13:18
+Worked on design doc
+
+queenieX, eugeneT, jenY -- 2017-12-21 13:18
+Worked on design doc
+
+jawadulK -- 2017-12-21 13:18
+Created Google Maps Embed API demo
+
+jawadulK, queenieX, eugeneT, jenY -- 2017-12-21 20:02
+Decided to switch idea
+New idea is finding events nearby the user using the Eventbrite API
+
+jenY -- 2017-12-21 21:08
+Worked on design doc
+
+jawadulK -- 2017-12-21 21:38
+File setup
