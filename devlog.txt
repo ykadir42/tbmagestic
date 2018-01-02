@@ -73,3 +73,8 @@ Implemented basic version of idea for demonstration
 jawadulK -- 2017-12-22 02:00
 Worked on design doc
 
+eugeneT -- 2018-01-02 13:10
+Examined bootstrap and began to incorporate it (along with inheritance) in our html templates
+
+queenieX -- 2018-01-02 13:11
+Examined the inner workings of the APIs while working on some python and back end coding

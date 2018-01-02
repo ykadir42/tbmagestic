@@ -1,16 +1,12 @@
-<html>
-  <head>
-    <title>Embed Demo</title>
-  </head>
+<!-- THIS IS THE DEMO FILE -->
+
+{% extends "reference.html" %}
+{% block content %}
   <body>
 	{% for i in range(10) %}
 		<h1>{{events[i]["name"]["html"]}}</h1>
-	    <iframe
-	       width="600"
-	       height="450"
-	       frameborder="0" style="border:0"
-	       src="{{"https://www.google.com/maps/embed/v1/place?key=AIzaSyALW1zijvrQPm_RLEiR0O-3Em1f-tz4ULY
-		    &q=" + addresses[i]}}" allowfullscreen>
+	    <iframe width="600" height="450" frameborder="0" style="border:0"
+	      src="{{"https://www.google.com/maps/embed/v1/place?key=AIzaSyALW1zijvrQPm_RLEiR0O-3Em1f-tz4ULY &q=" + addresses[i]}}" allowfullscreen>
 	    </iframe>
 		<br /> <br />
 		Directions:
