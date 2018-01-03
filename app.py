@@ -3,6 +3,15 @@ import urllib, urllib2, json
 
 app = Flask(__name__)
 
+def remove_space(text):
+    index = 0
+    for character in text:
+        if character == " ":
+            text = text[0:index] + text[index+1:]
+        else:
+            index += 1
+    return text
+
 @app.route("/")
 def root():
     query = "Stuyvesant"
@@ -10,16 +19,42 @@ def root():
 
 @app.route("/home")
 def home():
-	query = request.args["query"]
-	print "query: " + query
+    address = remove_space(request.args["address"])
+    #print address
+    query = remove_space(request.args["query"])    
+    radius = remove_space(request.args["radius"]) 
+    print "query: " + query
+    print "address: " + address
+    print "radius: " + radius
+    
+    #events
+    link = "https://www.eventbriteapi.com/v3/events/search/?q="
+    link += query
+    link += "&token=SON34CONY7CHJOP4LXMU&"
+    link += "location.address="
+    link += address
+    link += "&location.within="
+    link += radius
+    link += "mi"
 
-	#events
-	cmd = "https://www.eventbriteapi.com/v3/events/search/?q=" + urllib.quote(query) + "&token=SON34CONY7CHJOP4LXMU&location.address=345%20Chambers%20St,%20New%20York,%20NY%2010282&location.within=2mi"
-	print " " + cmd + " "
-	uResp = urllib2.urlopen(cmd)
-	data = uResp.read()
-	d = json.loads(data)
-	events = d["events"]
+    print link
+
+   
+    uResp = urllib2.urlopen(link)
+    data = uResp.read()
+    d = json.loads(data)
+    events = d["events"]
+    top_events = d["top_match_events"] 
+    
+
+    return render_template("return_page.html", d = events, f = top_events)
+
+if __name__ == "__main__":
+    app.debug = True
+    app.run()
+
+    
+'''
 	for event in events:
 		if not "venue_id" in event:
 			events.remove(event)
@@ -47,7 +82,4 @@ def home():
 		directions.append(d["routes"][0]["legs"][0]["steps"])
 
 	return render_template("demo.html", addresses = addresses, directions = directions, events = events)
-
-if __name__ == "__main__":
-    app.debug = True
-    app.run()
+''' 
