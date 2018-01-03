@@ -1,0 +1,56 @@
+.glyphicon
+{
+    color:#867876;
+    padding-top:15px;
+    font-size:20px;
+}
+
+body
+{
+    padding-top:50px;
+    font-family: 'Ubuntu', sans-serif;
+    position:relative;
+}
+.large
+{
+    background-color:white;
+    filter: alpha(opacity=90);
+    opacity: .8;
+    padding:30px;
+    width:900px;
+    font-size:30px;
+}
+.container
+{
+    padding:50px;
+}
+
+.jumbotron
+{
+    background-image:url(../static/film.jpg);
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: repeat;
+    height:450px;
+    padding-top:50px;
+    padding-left:50px;
+}
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+.navbar navbar-inverse
+{
+    color:#867876;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+ul.nav-pills {
+    top: 20px;
+    position: fixed;
+}
+div.col-sm-9 div {
+    height: 250px;
+    font-size: 28px;
+}
