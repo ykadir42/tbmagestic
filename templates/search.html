@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class = "container" style="align:left">
+  <h1> Search Results </h1>
+  {% if message is defined %}
+  <p class = "large">{{message}}</p>
+  {% endif %}
+  <br>
+  {% for i in d %}
+  <form action = "/event" method = 'POST' style="text-align:left">
+    <h3> {{ i["name"]["text"]}} </h3>
+    <a href = {{i["url"]}}>{{ i["description"]["text"] }} </a>
+    <input type = "hidden" name = "title" value = {{ i[0] }}>
+    <input type = "hidden" name = "url" value = {{ i[1] }}>
+    <button type="submit" class="btn btn-info">More Info</button>
+    <br><br>
+  </form>
+  {% endfor %}
+  </div>
+
+{% endblock content %}
