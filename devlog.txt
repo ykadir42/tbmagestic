@@ -81,3 +81,15 @@ Examined bootstrap and began to incorporate it (along with inheritance) in our h
 
 queenieX -- 2018-01-02 13:11
 Examined the inner workings of the APIs while working on some python and back end coding
+
+jenY -- 2018-01-04 13:00
+Added login and database scripts (commented out until database schema set up)
+Added gmap and eventbrite into utils folder
+  * functions retrieving data from APIs implemented here
+  * eventbrite returning list of events based on query
+Retrieved front-end from old projects (created by myself for HW #11)
+  * modified some of the front page
+Search functionality working, VERY basic
+  * only returns names of events, personalized event page not yet created
+  * looking to track user's location, no need for address
+
