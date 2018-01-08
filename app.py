@@ -26,11 +26,14 @@ def search():
 
 @app.route("/advancedsearch")
 def advancedsearch():
-    #address = remove_space(request.args["address"])
-    #print address
-    #query = remove_space(request.args["query"])    
-    #radius = remove_space(request.args["radius"])
     return render_template("advancedsearch.html")
+
+@app.route("/advancedresults") 
+def advancedresults():
+    address = remove_space(request.args["address"])
+    query = remove_space(request.args["query"])    
+    radius = remove_space(request.args["radius"])
+
     
 if __name__ == "__main__":
     app.debug = True

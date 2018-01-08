@@ -1,2 +1,22 @@
+{% extends "base.html" %} 
+{% block content %}
+
 <html>
+  <form action="/advancedresults" method="GET">
+      Enter address: 
+      <input type="text" name="address">
+      <br>
+      Enter query:
+      <input type="text" name="query">
+      <br>
+      Within Distance:
+      <input type="text" name="radius">
+      <br>
+      <input type="submit">
+  </form>
 </html>
+
+
+
+
+{% endblock content %} 

@@ -15,6 +15,7 @@ access_url(query) - Function to pull data from the Eventbrite API
  * and subsequently, to pull information about that movie
 KEEP TRACK OF HOW OFTEN THIS FXN IS CALL TO NOT GO OVER QUOTAS.
 '''
+
 def access_url(query):
     acc = ebrite_base
     if (query == ""):
@@ -42,3 +43,33 @@ def get_events(query):
     return results
     '''
     return events
+
+
+def advancedsearch(address, query, radius):
+    link = ebrite_base
+    if (query == ""):
+        print ("Nothing to search for...")
+    if (address == ""):
+        print ("No address given...")
+    else:
+        try:
+            link += "q="
+            q = query.replace(' ', '%20')
+            link += q
+
+            link += "&location.address="
+            a = address.replace(' ', '%20')
+            link += a
+
+            link += "&location.within="
+            r = radius.replace(' ', '%20')
+            link += r
+
+            link += "&token=" + key 
+
+            data = urllib2.urlopen(acc)
+            d = json.loads(data.read())
+            return d
+        except:
+            print "Key is incorrect, or quota reached."
+            
