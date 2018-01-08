@@ -20,17 +20,23 @@ def root():
 
 @app.route("/search")
 def search():
-    #address = remove_space(request.args["address"])
-    #print address
-    #query = remove_space(request.args["query"])    
-    #radius = remove_space(request.args["radius"]) 
     results = eventbrite.get_events(request.args["query"])
     print results
     return render_template("search.html", d = results)
 
+@app.route("/advancedsearch")
+def advancedsearch():
+    #address = remove_space(request.args["address"])
+    #print address
+    #query = remove_space(request.args["query"])    
+    #radius = remove_space(request.args["radius"])
+    return render_template("advancedsearch.html")
+    
 if __name__ == "__main__":
     app.debug = True
     app.run()
+
+
 
 '''
 #login authentication
