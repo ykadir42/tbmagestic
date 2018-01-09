@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for, request, session
 import urllib, urllib2, json
 from utils import eventbrite
 
@@ -28,20 +28,13 @@ def search():
 def advancedsearch():
     return render_template("advancedsearch.html")
 
-@app.route("/advancedresults") 
+@app.route("/advancedresults")
 def advancedresults():
     address = remove_space(request.args["address"])
-    query = remove_space(request.args["query"])    
+    query = remove_space(request.args["query"])
     radius = remove_space(request.args["radius"])
 
-    
-if __name__ == "__main__":
-    app.debug = True
-    app.run()
 
-
-
-'''
 #login authentication
 @app.route('/login', methods=['GET', 'POST'])
 def authentication():
@@ -69,4 +62,9 @@ def crt_acct():
         return auth.signup()
     else:
         return render_template('signup.html', title = "Signup" )
-'''
+
+
+
+if __name__ == "__main__":
+    app.debug = True
+    app.run()
