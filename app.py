@@ -1,8 +1,11 @@
 from flask import Flask, render_template, redirect, url_for, request, session
 import urllib, urllib2, json
-from utils import eventbrite
+from utils import eventbrite, auth
+import os
 
 app = Flask(__name__)
+#encrypts the values that you put in our cookie
+app.secret_key = os.urandom(32)
 
 def remove_space(text):
     index = 0

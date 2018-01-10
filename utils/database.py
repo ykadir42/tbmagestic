@@ -3,7 +3,7 @@ from flask import request, flash
 
 if __name__ == '__main__':
     # initialize database
-    db = sqlite3.connect("data/filmadillo.db")
+    db = sqlite3.connect("data/eg.db")
     c = db.cursor()
     # table for user login
     c.execute("CREATE TABLE users (user TEXT, pass TEXT, PRIMARY KEY(user))")
@@ -13,13 +13,12 @@ if __name__ == '__main__':
     db.commit()
     db.close()
 
-
 # -----FUNCTIONS FOR LOGIN SYSTEM-----
 
 
 # returns a dictionary for user data {user: pass}
 def getUsers():
-    db = sqlite3.connect("data/filmadillo.db")
+    db = sqlite3.connect("data/eg.db")
     c = db.cursor()
     a = 'SELECT user, pass FROM users'
     x = c.execute(a)
@@ -32,7 +31,7 @@ def getUsers():
 
 # add the login to the database
 def addUser(user, password):
-    db = sqlite3.connect("data/filmadillo.db")
+    db = sqlite3.connect("data/eg.db")
     c = db.cursor()
     vals = [user, password]
     c.execute("INSERT INTO users VALUES(?, ?)", vals)
@@ -54,7 +53,7 @@ def get_user_history(user):
     db.close()
     return movies
 
-#add movie into user's list of saved movies 
+#add movie into user's list of saved movies
 def add(user, movie, plot, url):
     db = sqlite3.connect("data/filmadillo.db")
     c = db.cursor()
@@ -89,4 +88,3 @@ def remove(user, movie):
     db.close()
 
 #print "---------\n\n" +  + "\n\n-------------"
-
