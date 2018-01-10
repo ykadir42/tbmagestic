@@ -2,20 +2,47 @@
 {% block content %}
 
 <html>
-  <form action="/advancedresults" method="GET">
-      Enter address: 
-      <input type="text" name="address">
-      <br>
-      Enter query:
-      <input type="text" name="query">
-      <br>
-      Within Distance:
-      <input type="text" name="radius">
-      <br>
-      <input type="submit">
-  </form>
-</html>
+  <style>
+    h1 {
+    font-size: 80px;
+    }
 
+    .questions {
+    margin-left:400px;
+    margin-right: 400px;
+    font-size:20px;
+    }
+  </style>
+  
+  <center>
+    <body>
+      <br>
+      <h1> Advanced Search </h1>
+      <hr class="my-4">
+      <div class="questions"> 
+	<form action="/advancedresults" method="GET">
+	  <div class="form-group">
+	    What are you looking for? 
+	    <input type="text" class="form-control" name="inputQuery" placeholder="Broadway Shows, Open Mic, Shake Shack, Art Classes, etc.">
+
+	    <br>
+	    
+	    Near Where? 
+	    <input type="text" class="form-control" name="inputAddress" placeholder="345 Chambers St, New York, NY 10282">
+
+	    <br>
+
+	    Within How Many Miles?
+	    <input type="number" class="form-control" name="inputRadius" placeholder="2">
+	    
+	    <br>
+	    <button type="submit" class="btn btn-info"> Submit </button>
+	  </div>
+	</form>
+      </div>
+    </body>
+  </center>
+</html>
 
 
 
