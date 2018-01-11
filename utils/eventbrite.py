@@ -11,7 +11,7 @@ print key
 '''
 access_url(query) - Function to pull data from the Eventbrite API
  * query parameter is used to access specific information in API
- * used to access an event 
+ * used to access an event
  * and subsequently, to pull information about that movie
 KEEP TRACK OF HOW OFTEN THIS FXN IS CALL TO NOT GO OVER QUOTAS.
 '''
@@ -56,7 +56,7 @@ def advancedsearch(address, query, radius):
             link += "q="
             q = query.replace(' ', '%20')
             link += q
-            link += "&token=" + key 
+            link += "&token=" + key
             link += "&location.address="
             a = address.replace(' ', '%20')
             link += a
@@ -68,10 +68,9 @@ def advancedsearch(address, query, radius):
             print data
             d = json.loads(data.read())
             #print d
-            return d
-        
+            return d['events']
+
 
         except:
             print repr(key)
             print "Key is incorrect, or quota reached."
-            
