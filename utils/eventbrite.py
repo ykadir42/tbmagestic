@@ -56,20 +56,19 @@ def advancedsearch(address, query, radius):
             link += "q="
             q = query.replace(' ', '%20')
             link += q
-
+            link += "&token=" + key 
             link += "&location.address="
             a = address.replace(' ', '%20')
             link += a
-
+            print a
             link += "&location.within="
             r = radius.replace(' ', '%20')
-            link += r
-
-            link += "&token=" + key 
-
-            data = urllib2.urlopen(acc)
+            link += r + "mi"
+            data = urllib2.urlopen(link)
+            print data
             d = json.loads(data.read())
-            return d
+            return d["events"]
         except:
+            print repr(key)
             print "Key is incorrect, or quota reached."
             

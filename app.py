@@ -33,10 +33,11 @@ def advancedsearch():
 
 @app.route("/advancedresults")
 def advancedresults():
-    address = remove_space(request.args["address"])
-    query = remove_space(request.args["query"])
-    radius = remove_space(request.args["radius"])
-
+    address = request.args["inputAddress"]
+    query = request.args["inputQuery"]
+    radius = request.args["inputRadius"]
+    results = eventbrite.advancedsearch(address, query, radius)
+    return render_template("search.html", d = results)
 
 #login authentication
 @app.route('/login', methods=['GET', 'POST'])

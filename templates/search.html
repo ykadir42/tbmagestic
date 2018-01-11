@@ -8,12 +8,14 @@
   {% endif %}
   <br>
   {% for i in d %}
-  <form action = "/event" method = 'POST' style="text-align:left">
+  <form action = {{i["url"]}} method = 'POST' style="text-align:left">
     <h3> {{ i["name"]["text"]}} </h3>
-    <a href = {{i["url"]}}>{{ i["description"]["text"] }} </a>
+    <p>{{i["status"]}}</p>
+   <!-- <p>{{i["venue_id"]["address"]}}</p><br>-->
+    <p>{{ i["description"]["text"] }} </p>
     <input type = "hidden" name = "title" value = {{ i[0] }}>
     <input type = "hidden" name = "url" value = {{ i[1] }}>
-    <button type="submit" class="btn btn-info">More Info</button>
+    <a href = {{i["url"]}}><button type="submit" class="btn btn-info">More Info</button></a>
     <br><br>
   </form>
   {% endfor %}
