@@ -34,7 +34,10 @@ def advancedresults():
     query = remove_space(request.args["inputQuery"])
     radius = remove_space(request.args["inputRadius"])
     d = eventbrite.advancedsearch(address, query, radius);
-    print d
+    for x in d:
+        if (x == "name"):
+            print d[x]
+    
     return render_template("advancedresults.html", address=address, query=query, radius=radius, d=d)
 
 

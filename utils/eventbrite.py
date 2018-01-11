@@ -69,7 +69,7 @@ def advancedsearch(address, query, radius):
 
             data = urllib2.urlopen(link)
             d = json.loads(data.read())
-            print d
+            #print d
             return d
         
         except:
