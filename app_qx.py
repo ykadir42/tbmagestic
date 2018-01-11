@@ -35,7 +35,7 @@ def advancedresults():
     radius = remove_space(request.args["inputRadius"])
     d = eventbrite.advancedsearch(address, query, radius);
     print d
-    return render_template("advancedresults.html", address=address, query=query, radius=radius)
+    return render_template("advancedresults.html", address=address, query=query, radius=radius, d=d)
 
 
 #login authentication
