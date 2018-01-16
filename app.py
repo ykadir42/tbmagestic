@@ -50,7 +50,7 @@ def advancedresults():
     radius = request.args["inputRadius"]
     results = eventbrite.advancedsearch(address, query, radius)
     return render_template("search.html", d = results)
-'''
+
 #login authentication
 @app.route('/login', methods=['GET', 'POST'])
 def authentication():
@@ -78,7 +78,7 @@ def crt_acct():
         return auth.signup()
     else:
         return render_template('signup.html', title = "Signup" )
-'''
+
 
 
 if __name__ == "__main__":
