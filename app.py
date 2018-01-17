@@ -18,7 +18,6 @@ def remove_space(text):
 
 @app.route("/")
 def root():
-    query = "Stuyvesant"
     return render_template("index.html")
 
 @app.route("/search")

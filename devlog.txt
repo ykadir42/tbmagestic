@@ -100,9 +100,10 @@ Created advancedsearch() to app.py and a route /advancedsearch so the user will 
 Advanced search includes searching by address, searching by query, and specifying radius
 Created advancedsearch.html
 Added to eventbrite.py to give back specific results for advanced search
-Created advancedresults() to app.py 
+Created advancedresults() to app.py
 
 queenieX -- 2018-01-10 13:10
-Added to the advanced search page to inclue a heading, what are you looking for (query), near where (address), and within how many miles (radius) 
+Added to the advanced search page to inclue a heading, what are you looking for (query), near where (address), and within how many miles (radius)
 
-I 
+jawadulK -- 2018-1-17 01:18
+Updated README.md
