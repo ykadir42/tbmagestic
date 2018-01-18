@@ -1,4 +1,5 @@
 import urllib2, json
+import google
 
 ebrite_base="https://www.eventbriteapi.com/v3/events/?"
 
@@ -53,24 +54,21 @@ def advancedsearch(address, query, radius):
         print ("No address given...")
     else:
         try:
-            link += "q="
-            q = query.replace(' ', '%20')
-            link += q
+            coord = google.get_lat_lng(address)
+            #link += "q="
+            #q = query.replace(' ', '+')
+            #link += q
             link += "&token=" + key
-            link += "&location.address="
-            a = address.replace(' ', '%20')
-            link += a
-            print a
-            link += "&location.within="
-            r = radius.replace(' ', '%20')
-            link += r + "mi"
+            link += "&location.latitude=" + str(coord[0])
+            link += "&location.longitude=" + str(coord[1])
+            #link += "&location.within=" + str(radius) + "mi"
+            print "\n\nhere!\n\n"
+            print link
             data = urllib2.urlopen(link)
             print data
             d = json.loads(data.read())
             #print d
             return d['events']
-
-
         except:
             print repr(key)
             print "Key is incorrect, or quota reached."
