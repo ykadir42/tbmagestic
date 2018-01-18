@@ -93,6 +93,9 @@ Search functionality working, VERY basic
   * only returns names of events, personalized event page not yet created
   * looking to track user's location, no need for address
 
+jenY -- 2018-01-06 11:32
+Working with geolocation
+Added geo.html and geolocation.js files
 
 queenieX -- 2018-01-08 13:00
 Added advanced search button to the navbar found in every page (by inheriting base.html)
@@ -107,3 +110,12 @@ Added to the advanced search page to inclue a heading, what are you looking for 
 
 jawadulK -- 2018-1-17 01:18
 Updated README.md
+
+jenY -- 2018-01-18 01:00
+Trying to fix accuracy of search results
+Used Google Places API to get latitude and longitude of an address
+  * search of events takes in lat and lng
+  * Problem with irrelevant results persists
+
+jenY -- 2018-01-18 01:11
+README.md up to par 
