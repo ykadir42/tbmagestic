@@ -55,19 +55,19 @@ def advancedsearch(address, query, radius):
     else:
         try:
             coord = google.get_lat_lng(address)
-            #link += "q="
-            #q = query.replace(' ', '+')
-            #link += q
+            link += "q="
+            q = query.replace(' ', '+')
+            link += q
             link += "&token=" + key
+            link += "&sort_by=best"
             link += "&location.latitude=" + str(coord[0])
             link += "&location.longitude=" + str(coord[1])
             #link += "&location.within=" + str(radius) + "mi"
             print "\n\nhere!\n\n"
             print link
             data = urllib2.urlopen(link)
-            print data
             d = json.loads(data.read())
-            #print d
+            print d
             return d['events']
         except:
             print repr(key)
