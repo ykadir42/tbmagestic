@@ -20,6 +20,36 @@ def remove_space(text):
 def root():
     return render_template("index.html")
 
+'''
+@app.route("/")
+def root():
+    results = eventbrite.get_events_radius("1")
+    return render_template("index.html", d = results)
+'''
+
+'''
+Because eventbrite.py is being worked on rn...
+def get_events_radius(radius):
+    link = ebrite_base
+    try:
+        coord = google.get_lat_lng(address)
+        link += "token=" + key
+        link += "&sort_by=best"
+        link += "&location.latitude=" + str(coord[0])
+        link += "&location.longitude=" + str(coord[1])
+        #link += "&location.within=" + str(radius) + "mi"
+        print "\n\nhere!\n\n"
+        print link
+        data = urllib2.urlopen(link)
+        d = json.loads(data.read())
+        print d
+        return d['events']
+    except:
+        print repr(key)
+        print "Key is incorrect, or quota reached."
+'''
+
+
 @app.route("/search")
 def search():
     results = eventbrite.get_events(request.args["query"])
