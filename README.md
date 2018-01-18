@@ -1,6 +1,8 @@
-<span style="color:lightblue;">e.g.</span>
+TB Mage Stic
 =====
+Jawadul Kadir, Eugene Thomas, Queenie Xiang, and Jen Yu
 
+# e.g.
 Users will receive a wide variety of events from the Eventbrite API based on their location, found by Google Maps Geolocation API. Currently, geolocation is still in progress, but a user can use the advanced search options to search for events near a certain address and within a certain radius.
 
 # How to Run
