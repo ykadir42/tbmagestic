@@ -8,7 +8,8 @@
 body
 {
     padding-top:50px;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Verdana', sans-serif;
+    background-color: white;
     position:relative;
 }
 .large
@@ -22,12 +23,11 @@ body
 }
 .container
 {
-    padding:50px;
+    padding:25px;
 }
 
 .jumbotron
 {
-    background-image:url(../static/film.jpg);
     background-position: 0% 25%;
     background-size: cover;
     background-repeat: repeat;
@@ -42,8 +42,8 @@ body
 }
 .navbar navbar-inverse
 {
-    color:#A7A5C6;
-    font-family: 'Ubuntu', sans-serif;
+    color:white;
+    font-family: 'Verdana', sans-serif;
 }
 
 ul.nav-pills {
