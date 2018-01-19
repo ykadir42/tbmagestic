@@ -54,20 +54,23 @@ def advancedsearch(address, query, radius):
         print ("No address given...")
     else:
         try:
-            coord = google.get_lat_lng(address)
+            #coord = google.get_lat_lng(address)
+            zipcode = google.get_zipcode(address)
             link += "q="
             q = query.replace(' ', '+')
             link += q
             link += "&token=" + key
+            link += "&location.address=" + str(zipcode)
+            '''
             link += "&sort_by=best"
             link += "&location.latitude=" + str(coord[0])
             link += "&location.longitude=" + str(coord[1])
-            #link += "&location.within=" + str(radius) + "mi"
+            '''
+            link += "&location.within=" + str(radius) + "mi"
             print "\n\nhere!\n\n"
             print link
             data = urllib2.urlopen(link)
             d = json.loads(data.read())
-            print d
             return d['events']
         except:
             print repr(key)

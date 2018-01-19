@@ -59,7 +59,8 @@ def get_placeid(address):
         link += "&key=" + key
         data = urllib2.urlopen(link)
         d = json.loads(data.read())
-        return d['results'][0]['placeid']
+        print d['results'][0]['place_id']
+        return d['results'][0]['place_id']
     except:
         print "Address not found."
 
@@ -72,6 +73,6 @@ def get_zipcode(address):
         link += "&key=" + key
         data = urllib2.urlopen(link)
         d = json.loads(data.read())
-        print d["result"]["address_components"][7]["long_name"]
+        return d["result"]["address_components"][7]["long_name"]
     except:
         print "Placeid invalid."
