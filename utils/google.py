@@ -1,6 +1,7 @@
 import urllib2, json
 
 places_base="https://maps.googleapis.com/maps/api/place/textsearch/json?"
+details_base="https://maps.googleapis.com/maps/api/place/details/json?"
 
 #retrieves key from key.txt
 f = open("key.txt", "r")
@@ -49,3 +50,28 @@ def get_lat_lng(address):
     except:
         print "Address not found."
 
+def get_placeid(address):
+    link = places_base
+    try:
+        link += "query="
+        a = address.replace(' ', '+')
+        link += a
+        link += "&key=" + key
+        data = urllib2.urlopen(link)
+        d = json.loads(data.read())
+        return d['results'][0]['placeid']
+    except:
+        print "Address not found."
+
+def get_zipcode(address):
+    placeid = get_placeid(address)
+    link = details_base
+    try:
+        link += "placeid="
+        link += placeid
+        link += "&key=" + key
+        data = urllib2.urlopen(link)
+        d = json.loads(data.read())
+        print d["result"]["address_components"][7]["long_name"]
+    except:
+        print "Placeid invalid."
