@@ -77,13 +77,50 @@ def advancedsearch_raw(address, query, radius):
 def advancedsearch(address, query, radius):
     events = advancedsearch_raw(address, query, radius)
     processed = []
+    newDict = {}
     for event in events:
         newDict["url"] = event["url"]
         newDict["name"] = event["name"]["text"]
         newDict["status"] = event["status"]
-        shortened = event["description"]["text"].split(" ")
-        shortened = shortened[:50]
-        str1 = ''.join(shortened)
-        newDict["description"] = str1
+        try:
+            shortened = event["description"]["text"].split(" ")
+            shortened = shortened[:50]
+            str1 = ' '.join(shortened)
+            newDict["description"] = str1
+        except:
+            print "No description."
+            newDict["description"] = "No description."
         newDict["venue"] = event["venue_id"]
-        
+        print "\n\n\nvenueid:" + str(event["venue_id"]) + "\n\n\n"
+        start = event["start"]["local"]
+        dStart = start.split("T")[0]
+        tStart = start.split("T")[1]
+        newDict["dStart"] = dStart
+        newDict["tStart"] = tStart
+        newDict["tzone"] = event["start"]["timezone"]
+        end = event["end"]["local"]
+        dEnd = end.split("T")[0]
+        tEnd = end.split("T")[1]
+        newDict["dEnd"] = dEnd
+        newDict["tEnd"] = tEnd
+        newDict["logo"] = event["logo_id"]
+        print "\n\n\nvenueid:" + str(event["logo_id"]) + "\n\n\n"
+        print newDict
+        return newDict
+    
+'''  
+<br>
+  <!--
+  {% for i in d %}
+  <form action = {{i["url"]}} method = 'POST' style="text-align:left">
+    <h3> {{ i["name"]["text"]}} </h3>
+    <p>{{i["status"]}}</p>
+   <p>{{i["venue_id"]["address"]}}</p><br>
+    <p>{{ i["description"]["text"] }} </p>
+    <input type = "hidden" name = "title" value = {{ i[0] }}>
+    <input type = "hidden" name = "url" value = {{ i[1] }}>
+    <a href = {{i["url"]}}><button type="submit" class="btn btn-info">More Info</button></a>-->
+    <br><br>
+  </form>
+  {% endfor %}
+'''
