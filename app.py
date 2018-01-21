@@ -20,39 +20,9 @@ def remove_space(text):
 def root():
     return render_template("index.html")
 
-'''
-@app.route("/")
-def root():
-    results = eventbrite.get_events_radius("1")
-    return render_template("index.html", d = results)
-'''
-
-'''
-Because eventbrite.py is being worked on rn...
-def get_events_radius(radius):
-    link = ebrite_base
-    try:
-        coord = google.get_lat_lng(address)
-        link += "token=" + key
-        link += "&sort_by=best"
-        link += "&location.latitude=" + str(coord[0])
-        link += "&location.longitude=" + str(coord[1])
-        #link += "&location.within=" + str(radius) + "mi"
-        print "\n\nhere!\n\n"
-        print link
-        data = urllib2.urlopen(link)
-        d = json.loads(data.read())
-        print d
-        return d['events']
-    except:
-        print repr(key)
-        print "Key is incorrect, or quota reached."
-'''
-
-
 @app.route("/search")
 def search():
-    #CURRENT DEFAULT WHILE GEOLOCATION DOESN'T WORK
+     #CURRENT DEFAULT WHILE GEOLOCATION DOESN'T WORK
     results = eventbrite.advancedsearch("New York", request.args["query"], 2)
     return render_template("search.html", d = results)
 
@@ -67,6 +37,13 @@ def advancedresults():
     radius = request.args["inputRadius"]
     results = eventbrite.advancedsearch(address, query, radius)
     return render_template("search.html", d = results)
+
+@app.route("/event", methods=['GET', 'POST'])
+def event():
+    args = request.form.to_dict()
+    print "\n\nARGS COMIN THRU \n\n"
+    print args
+    return render_template("eventpage.html", e = args)
 
 #login authentication
 @app.route('/login', methods=['GET', 'POST'])
