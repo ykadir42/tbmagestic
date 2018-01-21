@@ -52,8 +52,8 @@ def get_events_radius(radius):
 
 @app.route("/search")
 def search():
-    results = eventbrite.get_events(request.args["query"])
-    print results
+    #CURRENT DEFAULT WHILE GEOLOCATION DOESN'T WORK
+    results = eventbrite.advancedsearch("New York", request.args["query"], 2)
     return render_template("search.html", d = results)
 
 @app.route("/advancedsearch")
