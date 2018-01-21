@@ -129,3 +129,8 @@ jenY -- 2018-01-21 14:25
 Finished formatting advanced search results
 Results processed from json string before return
 Hidden values included in submit function
+
+jenY -- 2018-01-21 15:30
+Added eventpage for displaying an event
+Added path for event
+Testing out with retrieving all paramters from form at once
