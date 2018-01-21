@@ -119,3 +119,13 @@ Used Google Places API to get latitude and longitude of an address
 
 jenY -- 2018-01-18 01:11
 README.md up to par 
+
+jenY -- 2018-01-20 14:30
+Working on advanced search function
+Turns out Eventbrite just has a bad search function...
+Formatting in progress for Search Results
+
+jenY -- 2018-01-21 14:25
+Finished formatting advanced search results
+Results processed from json string before return
+Hidden values included in submit function
