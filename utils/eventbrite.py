@@ -60,7 +60,8 @@ def advancedsearch_raw(address, query, radius):
             q = query.replace(' ', '+')
             link += q
             link += "&token=" + key
-            #link += "&location.address=" + str(zipcode)
+            a = address.replace(' ', '+')
+            link += "&location.address=" + a 
             link += "&sort_by=best"
             link += "&location.latitude=" + str(coord[0])
             link += "&location.longitude=" + str(coord[1])
@@ -73,6 +74,7 @@ def advancedsearch_raw(address, query, radius):
         except:
             print repr(key)
             print "Key is incorrect, or quota reached."
+            return []
 
 def advancedsearch(address, query, radius):
     events = advancedsearch_raw(address, query, radius)
