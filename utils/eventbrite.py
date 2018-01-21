@@ -46,7 +46,7 @@ def get_events(query):
     return events
 
 
-def advancedsearch(address, query, radius):
+def advancedsearch_raw(address, query, radius):
     link = ebrite_base
     if (query == ""):
         print ("Nothing to search for...")
@@ -73,3 +73,17 @@ def advancedsearch(address, query, radius):
         except:
             print repr(key)
             print "Key is incorrect, or quota reached."
+
+def advancedsearch(address, query, radius):
+    events = advancedsearch_raw(address, query, radius)
+    processed = []
+    for event in events:
+        newDict["url"] = event["url"]
+        newDict["name"] = event["name"]["text"]
+        newDict["status"] = event["status"]
+        shortened = event["description"]["text"].split(" ")
+        shortened = shortened[:50]
+        str1 = ''.join(shortened)
+        newDict["description"] = str1
+        newDict["venue"] = event["venue_id"]
+        
