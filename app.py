@@ -62,18 +62,6 @@ def advancedsearch():
 
 @app.route("/advancedresults")
 def advancedresults():
-
-    '''
-    address = remove_space(request.args["inputAddress"])
-    query = remove_space(request.args["inputQuery"])
-    radius = remove_space(request.args["inputRadius"])
-    d = eventbrite.advancedsearch(address, query, radius);
-    for x in d:
-        if (x == "name"):
-            print d[x]
-    return render_template("advancedresults.html", address=address, query=query, radius=radius, d=d)
-
-    '''
     address = request.args["inputAddress"]
     query = request.args["inputQuery"]
     radius = request.args["inputRadius"]

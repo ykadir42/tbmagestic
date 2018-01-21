@@ -86,12 +86,11 @@ def advancedsearch(address, query, radius):
             shortened = event["description"]["text"].split(" ")
             shortened = shortened[:50]
             str1 = ' '.join(shortened)
-            newDict["description"] = str1
+            newDict["description"] = str1 + "..."
         except:
             print "No description."
             newDict["description"] = "No description."
         newDict["venue"] = event["venue_id"]
-        print "\n\n\nvenueid:" + str(event["venue_id"]) + "\n\n\n"
         start = event["start"]["local"]
         dStart = start.split("T")[0]
         tStart = start.split("T")[1]
@@ -104,9 +103,9 @@ def advancedsearch(address, query, radius):
         newDict["dEnd"] = dEnd
         newDict["tEnd"] = tEnd
         newDict["logo"] = event["logo_id"]
-        print "\n\n\nvenueid:" + str(event["logo_id"]) + "\n\n\n"
-        print newDict
-        return newDict
+        processed.append(newDict)
+        newDict = {}
+    return processed
     
 '''  
 <br>

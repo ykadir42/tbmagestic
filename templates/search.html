@@ -9,8 +9,26 @@
   {% for i in d %}
   <form action = "/event" method = "POST" style = "text-align:left">
     <h3> {{i["name"]}}</h3>
-    
-  {{d}}
+    <p> Status: {{i["status"]}} <br>
+      Timezone: {{i["tzone"]}} <br>
+      Start: {{i["dStart"]}} at {{i["tStart"]}} <br>
+      End: {{i["dEnd"]}} at {{i["tEnd"]}}
+    </p>
+    <input type = "hidden" name = "venue" value = {{i["venue"]}}>
+    <input type = "hidden" name = "logo" value = {{i["logo"]}}>
+    <input type = "hidden" name = "url" value = {{i["url"]}}>
+    <input type = "hidden" name = "status" value = {{i["status"]}}>
+    <input type = "hidden" name = "name" value = {{i["name"]}}>
+    <input type = "hidden" name = "descr" value = {{i["description"]}}>
+    <input type = "hidden" name = "tzone" value = {{i["tzone"]}}>
+    <input type = "hidden" name = "dS" value = {{i["dStart"]}}>
+    <input type = "hidden" name = "tS" value = {{i["tStart"]}}>
+    <input type = "hidden" name = "dE" value = {{i["dEnd"]}}>
+    <input type = "hidden" name = "tE" value = {{i["tEnd"]}}>
+    <button type = "submit" class = "btn btn-info"> More Info </button>
+  </form>
+  <br> <br>
+  {% endfor %}
 
 </div>
 {% endblock content %}
