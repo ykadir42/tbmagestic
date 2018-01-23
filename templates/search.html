@@ -1,8 +1,14 @@
 {% extends "base.html" %}
-
 {% block content %}
+
+<style>
+  body {
+    background-color: #E8E8E8;
+  }
+</style>
+
 <div class = "container" style="align:left">
-  <h1> Search Results </h1>
+  <h1> <u> Search Results </u> </h1>
   {% if message is defined %}
   <p class = "large">{{message}}</p>
   {% endif %}
