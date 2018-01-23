@@ -47,19 +47,6 @@
 
   {% block body %}
   <body>
-
-    {# Display flashed messages #}
-    {% set messages = get_flashed_messages() %}
-    {% for msg in messages %}
-    <div class = "container" style="padding:20px">
-      {% if msg.find("!") >= 0 %}
-      <div class="alert alert-success" role="alert">{{msg}}</div>
-      {% endif %}
-      {% if msg.find("...") >= 0 %}
-      <div class="alert alert-danger" role="alert">{{msg}}</div>
-      {% endif %}
-    </div>
-    {% endfor %}
     {% block content %}
     {% endblock content %}
   </body>

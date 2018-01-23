@@ -73,8 +73,6 @@ def crt_acct():
     else:
         return render_template('signup.html', title = "Signup" )
 
-
-
 if __name__ == "__main__":
     app.debug = True
     app.run()

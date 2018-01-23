@@ -1,10 +1,13 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 {% block content %}
 
 <html>
   <style>
+
     h1 {
-    font-size: 80px;
+      font-size: 50px;
+      padding-left: 10px;
+      padding-bottom: 10px;
     }
 
     .questions {
@@ -12,31 +15,50 @@
     margin-right: 400px;
     font-size:20px;
     }
+
+    .button {
+      border: none;
+      color: white;
+      padding: 20px 40px;
+      text-align: center;
+      font-size: 16px;
+      margin: 4px 2px;
+      -webkit-transition-duration: 0.4s; /* Safari */
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
+
+    .button1 {
+      background-color: white;
+      color: black;
+      border: 3px solid black;
+    }
+
+    .button1:hover {
+      background-color: black;
+      color: white;
+    }
+
   </style>
-  
+
   <center>
     <body>
       <br>
       <h1> Advanced Search </h1>
       <hr class="my-4">
-      <div class="questions"> 
+      <div class="questions">
 	<form action="/advancedresults" method="GET">
 	  <div class="form-group">
-	    What are you looking for? 
+	    What are you looking for?
 	    <input type="text" class="form-control" name="inputQuery" placeholder="Broadway Shows, Open Mic, Shake Shack, Art Classes, etc.">
-
-	    <br>
-	    
-	    Near Where? 
+	    <br><br>
+	    Near Where?
 	    <input type="text" class="form-control" name="inputAddress" placeholder="345 Chambers St, New York, NY 10282">
-
-	    <br>
-
+	    <br><br>
 	    Within How Many Miles?
 	    <input type="number" class="form-control" name="inputRadius" placeholder="2">
-	    
-	    <br>
-	    <button type="submit" class="btn btn-info"> Submit </button>
+	    <br><br>
+	    <button type="submit" class="button button1"> Submit </button>
 	  </div>
 	</form>
       </div>
@@ -46,4 +68,4 @@
 
 
 
-{% endblock content %} 
+{% endblock content %}

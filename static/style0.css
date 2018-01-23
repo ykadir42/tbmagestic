@@ -12,18 +12,15 @@ body
     background-color: white;
     position:relative;
 }
+
 .large
 {
     background-color:white;
-    filter: alpha(opacity=90);
+    filter: alpha(opacity=80);
     opacity: .8;
     padding:30px;
-    width:900px;
+    width:600px;
     font-size:30px;
-}
-.container
-{
-    padding:25px;
 }
 
 .jumbotron
@@ -31,15 +28,17 @@ body
     background-position: 0% 25%;
     background-size: cover;
     background-repeat: repeat;
-    height:800px;
+    height:600px;
     padding-top:50px;
     padding-left:50px;
 }
+
 .scrollable-menu {
     height: auto;
     max-height: 200px;
     overflow-x: hidden;
 }
+
 .navbar navbar-inverse
 {
     color:white;
@@ -50,6 +49,7 @@ ul.nav-pills {
     top: 20px;
     position: fixed;
 }
+
 div.col-sm-9 div {
     height: 250px;
     font-size: 28px;
