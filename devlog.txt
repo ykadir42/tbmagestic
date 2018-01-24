@@ -149,6 +149,7 @@ Added a user system with a data base -- stores user search history
 Added a login / logout system
 Added a user-info page
 Created video-demo
+Updated design.pdf
 
 thomasE -- 2018-01-10 13:17 to 2018-01-24 8:00
 Worked on the front end, ensuring that every single project looked as nice as possible.
