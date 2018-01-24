@@ -15,34 +15,87 @@
   {% endblock head %}
 
   {% block navbar %}
-  <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:black;">
+  <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#66ced6;">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="/">e.g.</a>
 	<span class="glyphicon glyphicon-calendar"></span>
       </div>
-      <form class="navbar-form navbar-right" action="/advancedsearch">
-        <button type="submit" class="btn btn-default">  Advanced Search </button>
-      </form>
-      <form class="navbar-form navbar-right" action="/search" method="GET,POST">
+      <form id="search-form" class="navbar-form navbar-left" name="search-form" action="/search" method="POST">
         <div class="form-group">
-          <input type="text" class="form-control" name="query" placeholder="What do you want to do?">
+          <input type="text" id="search-query" class="form-control" name="query" placeholder="What do you want to do?">
         </div>
-        <button type="submit" class="btn btn-default">Search</button>
       </form>
+      <button id="search-button" class="btn btn-default navbar-left" style="margin-top:8px;">Search</button>
+	<script type="text/javascript">
+	  function search(position){
+	    console.log("starting search");
+	    console.log(position);
+	    var form = document.forms["search-form"];
+            var longitude = document.createElement("input");
+	    longitude.type = "hidden";
+	    longitude.name = "longitude";
+	    longitude.value = position.coords.longitude;
+	    form.appendChild(longitude);
+	    var latitude = document.createElement("input");
+	    latitude.type = "hidden";
+	    latitude.name = "latitude";
+	    latitude.value = position.coords.latitude;
+	    form.appendChild(latitude);
+		form.submit();
+	  };
+
+	  var error = function(){
+	    console.log("error acquiring location");
+	    form.submit();
+	  }
+
+	  var searchButton = function(){
+	    console.log("staring searchButton");
+	    if (navigator.geolocation) {
+	      console.log("yes");
+              navigator.geolocation.getCurrentPosition(search, () => console.log("error"));
+	    } else {
+	      console.log("Geolocation not supported.");
+	    }
+	  };
+
+	  var searchB = document.getElementById("search-button");
+	  searchB.addEventListener('click', searchButton);
+	</script>
+	<form class="navbar-form navbar-left" action="/advancedsearch">
+	  <button type="submit" class="btn btn-default">  Advanced Search </button>
+	</form>
+      <ul class="nav navbar-nav navbar-right">
+      	{% block icons %}
+        {% if loggedIn %}
+	<li><a href="/profile"><span class="glyphicon glyphicon-home" style="padding-top:0px;color:#A7A5C6;"></span> Profile</a></li>
+        <li><a href="/logout"><span class="glyphicon glyphicon-log-out" style="padding-top:0px;"></span> Log Out</a></li>
+        {% else %}
+        <li><a href="/signup"><span class="glyphicon glyphicon-user" style="padding-top:0px;"></span> Sign Up</a></li>
+        <li><a href="/login"><span class="glyphicon glyphicon-log-in" style="padding-top:0px;"></span> Log In</a></li>
+        {% endif %}
+        {% endblock icons %}
+      </ul>
     </div>
   </nav>
-  <footer class="navbar-default navbar-fixed-bottom">
-  <div class="container-fluid" style="background-color: white; font-size: 20px; padding:20px;">
-    <center>
-    <span><b>Created by TB Magestic</b></span>
-  </center>
-  </div>
-  </footer>
   {% endblock navbar %}
 
   {% block body %}
   <body>
+
+    {# Display flashed messages #}
+    {% set messages = get_flashed_messages() %}
+    {% for msg in messages %}
+    <div class = "container" style="padding:20px">
+      {% if msg.find("!") >= 0 %}
+      <div class="alert alert-success" role="alert">{{msg}}</div>
+      {% endif %}
+      {% if msg.find("...") >= 0 %}
+      <div class="alert alert-danger" role="alert">{{msg}}</div>
+      {% endif %}
+    </div>
+    {% endfor %}
     {% block content %}
     {% endblock content %}
   </body>
