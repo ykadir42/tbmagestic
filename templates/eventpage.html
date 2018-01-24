@@ -15,26 +15,24 @@
     padding-top: 25px;
   }
 
-  .button {
-    background-color: white;
-    color: black;
-    border: 3px solid black;
-    text-align: center;
-    font-size: 30px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-  }
-
-  .button:hover {
+  a:link, a:visited {
     background-color: black;
     color: white;
+    text-align: center;
+    font-size: 30px;
+    padding: 10px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    display: inline-block;
   }
+
 </style>
 
 <h1> <u> Search Results </u> </h1>
 <br>
-<button class="button"><a href={{e['url']}}>Buy Tickets Here</a></button> <br> <br>
-Starting on {{e['dS']}} @ {{e['tS']}}<br> <br>
-Ending on {{e['dE']}} @ {{e['tE']}} <br> <br>
+<a href={{e['url']}} target='_blank'>Buy Tickets Here</a> <br> <br>
+Starting: {{e['dS']}} @ {{e['tS']}}<br>
+Ending:  {{e['dE']}} @ {{e['tE']}} <br><br> 
 {{e}}
 {% endblock content %}
