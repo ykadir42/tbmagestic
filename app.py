@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, request, session, flash
-from utils import eventbrite, auth
+from utils import eventbrite
 import os
 
 app = Flask(__name__)
@@ -46,9 +46,9 @@ def search():
 		results = eventbrite.get_events_location(form["query"], form["latitude"], form["longitude"])
 	else:
 		results = eventbrite.get_events(form["query"])
-	#print results
-	if(results == None):
-		print "No reults found"
+	print results
+	if(results == []):
+		print "No results found"
 		flash("Whoops! We couldn't find an event for you!")
 		return render_template("search.html")
 	return render_template("search.html", d = results)
@@ -63,6 +63,11 @@ def advancedresults():
 	query = request.args["inputQuery"]
 	radius = request.args["inputRadius"]
 	results = eventbrite.advancedsearch(address, query, radius)
+	print results
+	if(results == []):
+		print "No results found"
+		flash("Whoops! We couldn't find an event for you!")
+		return render_template("search.html")
 	return render_template("search.html", d = results)
 
 @app.route("/event", methods=['GET', 'POST'])
