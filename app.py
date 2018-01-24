@@ -1,5 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request, session, flash
-import urllib, urllib2, json
+from flask import Flask, render_template, redirect, request, session, flash
 from utils import eventbrite, auth
 import os
 
@@ -15,6 +14,22 @@ def remove_space(text):
 		else:
 			index += 1
 	return text
+
+def dateConversion(string):
+	year = string[:4]
+	month = string[5:7]
+	day = string[8:]
+	return month + "-" + day + "-" + year
+
+def timeConversion(string):
+	hours = int(string[:2])
+	minute = string[3:5]
+	tOfDay = 'am'
+	if hours > 12:
+		hours = hours - 12
+		tOfDay = 'pm'
+	hour = str(hours)
+	return hour + ":" + minute + " " + tOfDay
 
 @app.route("/")
 def root():
@@ -38,30 +53,27 @@ def search():
 		return render_template("search.html")
 	return render_template("search.html", d = results)
 
-
 @app.route("/advancedsearch")
 def advancedsearch():
 	return render_template("advancedsearch.html")
 
 @app.route("/advancedresults")
 def advancedresults():
-
-	'''
-	address = remove_space(request.args["inputAddress"])
-	query = remove_space(request.args["inputQuery"])
-	radius = remove_space(request.args["inputRadius"])
-	d = eventbrite.advancedsearch(address, query, radius);
-	for x in d:
-		if (x == "name"):
-			print d[x]
-	return render_template("advancedresults.html", address=address, query=query, radius=radius, d=d)
-
-	'''
 	address = request.args["inputAddress"]
 	query = request.args["inputQuery"]
 	radius = request.args["inputRadius"]
 	results = eventbrite.advancedsearch(address, query, radius)
 	return render_template("search.html", d = results)
+
+@app.route("/event", methods=['GET', 'POST'])
+def event():
+	args = request.form.to_dict()
+	args['dS'] = dateConversion(args['dS'])
+	args['dE'] = dateConversion(args['dE'])
+	args['tS'] = timeConversion(args['tS'])
+	args['tE'] = timeConversion(args['tE'])
+	return render_template("eventpage.html", e = args)
+
 
 #login authentication
 @app.route('/login', methods=['GET', 'POST'])
@@ -90,8 +102,6 @@ def crt_acct():
 		return auth.signup()
 	else:
 		return render_template('signup.html', title = "Signup" )
-
-
 
 if __name__ == "__main__":
 	app.debug = True

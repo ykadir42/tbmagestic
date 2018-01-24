@@ -1,8 +1,65 @@
-<span style="color:lightblue;">e.g.</span>
-=====
+# TB Mage Stic
 
-Users will receive a wide variety of events from the Eventbrite API based on their location, found by Google Maps Geolocation API. Currently, geolocation is still in progress, but a user can use the advanced search options to search for events near a certain address and within a certain radius.
+## Roster
+Jawadul Kadir, Eugene Thomas, Queenie Xiang, and Jen Yu
 
-# How to Run
+# e.g.
+This website is meant to integrate both Google Maps APIs and the Eventbrite API in order to create a comprehensive and useful application for users to find events and activities near them. Features include being able to see popular events near you, and finding events near an inputted address. Additionally, directions and an embedded map are provided on event pages, reducing the extra hassle of having to input an address into the Google Maps site. If time allows, we hope to implement an interactive map element, where using AJAX, a user can walk around the city and have a map update simultaneously with events near her/his current location.
 
-Before being able to use the website, you will have to acquire the Eventbrite API key and set it up. Make an account [here](https://www.eventbrite.com/) and click on your name, then Account Settings>Developer>App Management. Click "CREATE A NEW APP" and fill out the form to request an API key. The key will now appear in your App Management page. Copy the API key into a plain text file named key.txt and place the file in the same directory as app.py. Now call `python app.py` in the terminal and navigate to localhost:5000 on your browser to use out website.
+### Launch Instructions
+
+Needed:
+* Python
+* Flask
+
+Python and Flask are needed in order to run this webapp. You should install Flask in a virtual environment so it doesn't interfere with your root python install.
+
+Run this in the terminal to install the Flask dependency.
+```
+$ (venv) pip install flask
+```
+
+*__To Run:__*
+
+First, procure an API key from the [Eventbrite site](https://www.eventbrite.com/) for the Eventbrite API.
+  * Make an account [here](https://www.eventbrite.com/).
+  * Click on your username, and naviagate: Account Settings > Developer > App Management.
+  * Press __CREATE A NEW APP__ and fill out the API key request form.
+  * The key will appear in the 'App Management' page (Use the OAuth token.)
+
+Also, request an API key from the Google Maps Developer site.
+  * Navigate to [this link](https://developers.google.com/maps/).
+  * Click on the API you want to use (the key works for all, so no worries!)
+  * At the very top the page, press on __GET A KEY__.
+  * Follow the progression in order to obtain your API key.
+
+Clone this repo:
+```
+$ git clone git@github.com:ykadir42/tbmagestic.git
+```
+
+Now, ```cd``` into the repo:
+```
+$ cd tbmagestic
+```
+
+Add your API keys to the ```key.txt``` file, in this format:
+```
+[Eventbrite API Key FRIST]
+[Google Maps API Key SNECOD]
+```
+Run the application!
+```
+$ python app.py
+```
+View this webpage by navigating to ```localhost:5000``` in your web browser.
+
+### Additional Resources
+
+Eventbrite API:  
+[Source Documentation](https://www.eventbrite.com/developer/v3/)
+
+Google Maps:  
+[GoogDrive Doc](https://docs.google.com/document/d/1UPeS9XTQ_4Yt1zae4km4jDJK59MJhA1IF0-hjkiZfLE/edit)
+
+[Source Documentation](https://developers.google.com/maps/)
