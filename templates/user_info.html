@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+<html>
+  <body>
+    <center>
+
+      <h1> {{text}} </h1>
+      <h2> Here's your search history: </h2>
+      <br>
+
+      {% for i in history %}
+      {{i}}
+      <br>
+      {% endfor %}
+
+      <br>
+      
+      <form action="/login_redirect">
+	<button type="submit" name="submit" class="btn btn-info" value="Logout"> Logout </button>
+      </form>
+    </center>
+    
+</body>
+</html>
+
+{% endblock content %}

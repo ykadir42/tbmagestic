@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+  <style>
+    .f1 {
+    margin-left: 400px;
+    margin-right: 400px;
+    }
+  </style>
+  <head>
+    <title>Login</title>
+    </head>
+  <body>
+    <center>
+      <form action = "/login_redirect">
+	<div class="form-group">
+	  <div class="f1">
+	<h2>Welcome, please login below.</h2> 
+	Username: <input type = "text" class="form-control"name = "user">
+	<br>
+	Password: <input type = "password" class="form-control" name = "pass">
+	<br>
+	<button type="submit" class="btn btn-info"> Login </button>
+	  </div>
+	</div>
+      </form>
+
+      <form action = "/register">
+	<h3> First time user? Click below </h3>
+	<button type="submit" class="btn btn-info"> Register</button>
+      </form>
+      </center>
+    </body>
+</html>
+
+{% endblock content %}

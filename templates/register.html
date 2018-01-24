@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+<html>
+  <style>
+    .f1{
+    margin-left: 400px;
+    margin-right: 400px;
+    }
+  </style>
+  <head>
+    <title>Login</title>
+    </head>
+  <body>
+    <center>
+      <form action = "/register_redirect" method="post">
+	<div class="form-group">
+	  <div class="f1">
+	<h2>Welcome, please register below.</h2>
+	Username: <input type="text" class="form-control" name = "user">
+	<br>
+	First Name: <input type = "text" class="form-control" name = "firstname">
+	<br>
+	Last Name: <input type = "text" class="form-control" name = "lastname">
+	<br>
+	Email: <input type="email" class="form-control" name="email">
+	<br>
+	Password: <input type="password" class="form-control" name = "pass">
+	<br>
+	Repeat Password: <input type="password" class="form-control" name = "pass_repeat">
+	<br><br>
+	<button type="submit" class="btn btn-info"> Register </button>
+	  </div>
+	  </div>
+	</form>
+      </center>
+    </body>
+</html>
+
+{% endblock content %}

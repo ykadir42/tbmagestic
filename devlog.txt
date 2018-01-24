@@ -135,8 +135,16 @@ Added eventpage for displaying an event
 Added path for event
 Testing out with retrieving all paramters from form at once
 
+queenieX -- 2018-01-22 10:45
+Added a synonym filtering system to refine the advanced search results
+
 jawadulK -- 2018-01-24 1:21
 Implemented geolocation into search and advanced search
   Uses javascript geolocation functions
 Fixed results being random, now results based off query
 Added error for if no events are found
+
+queenieX -- 2018-01-24 5:10
+Added a user system with a data base -- stores user search history
+Created video-demo
+
