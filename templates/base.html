@@ -1,50 +1,86 @@
 <!DOCTYPE html>
 <html>
-  {% block head %}
-  <head>
-    <title>
-      {% block title%} {{title}} {% endblock title %}-|-&nbsp e.g.
-    </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/style0.css">
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  </head>
-  {% endblock head %}
+{% block head %}
+<head>
+	<title>
+		{% block title%} {{title}} {% endblock title %}-|-&nbsp e.g.
+	</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../static/style0.css">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+{% endblock head %}
 
-  {% block navbar %}
-  <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:black;">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">e.g.</a>
-	<span class="glyphicon glyphicon-calendar"></span>
-      </div>
-      <form class="navbar-form navbar-right" action="/advancedsearch">
-        <button type="submit" class="btn btn-default">  Advanced Search </button>
-      </form>
-      <form class="navbar-form navbar-right" action="/search" method="GET,POST">
-        <div class="form-group">
-          <input type="text" class="form-control" name="query" placeholder="What do you want to do?">
-        </div>
-        <button type="submit" class="btn btn-default">Search</button>
-      </form>
-    </div>
-  </nav>
-  <footer class="navbar-default navbar-fixed-bottom">
-  <div class="container-fluid" style="background-color: white; font-size: 20px; padding:20px;">
-    <center>
-    <span><b>Created by TB Magestic</b></span>
-  </center>
-  </div>
-  </footer>
-  {% endblock navbar %}
+{% block navbar %}
+<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:black;">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/">e.g.</a>
+			<span class="glyphicon glyphicon-calendar"></span>
+		</div>
+		<form class="navbar-form navbar-right" action="/advancedsearch">
+			<button type="submit" class="btn btn-default">  Advanced Search </button>
+		</form>
+		<button id="search-button" class="btn btn-default navbar-right" style="margin-top:8px;">Search</button>
+		<form id="search-form" class="navbar-form navbar-right" name="search-form" action="/search" method="POST">
+			<div class="form-group">
+				<input type="text" id="search-query" class="form-control" name="query" placeholder="What do you want to do?">
+			</div>
+		</form>
+		<script type="text/javascript">
+		function search(position){
+			console.log("starting search");
+			console.log(position);
+			var form = document.forms["search-form"];
+			var longitude = document.createElement("input");
+			longitude.type = "hidden";
+			longitude.name = "longitude";
+			longitude.value = position.coords.longitude;
+			form.appendChild(longitude);
+			var latitude = document.createElement("input");
+			latitude.type = "hidden";
+			latitude.name = "latitude";
+			latitude.value = position.coords.latitude;
+			form.appendChild(latitude);
+			form.submit();
+		};
 
-  {% block body %}
-  <body>
-    {% block content %}
-    {% endblock content %}
-  </body>
-  {% endblock body %}
+		var error = function(){
+			console.log("error acquiring location");
+			form.submit();
+		}
+
+		var searchButton = function(){
+			console.log("staring searchButton");
+			if (navigator.geolocation) {
+				console.log("yes");
+				navigator.geolocation.getCurrentPosition(search, () => console.log("error"));
+			} else {
+				console.log("Geolocation not supported.");
+			}
+		};
+
+		var searchB = document.getElementById("search-button");
+		searchB.addEventListener('click', searchButton);
+		</script>
+	</div>
+</nav>
+<footer class="navbar-default navbar-fixed-bottom">
+	<div class="container-fluid" style="background-color: white; font-size: 20px; padding:20px;">
+		<center>
+			<span><b>Created by TB Magestic</b></span>
+		</center>
+	</div>
+</footer>
+{% endblock navbar %}
+
+{% block body %}
+<body>
+	{% block content %}
+	{% endblock content %}
+</body>
+{% endblock body %}
 </html>

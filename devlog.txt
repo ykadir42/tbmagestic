@@ -118,7 +118,7 @@ Used Google Places API to get latitude and longitude of an address
   * Problem with irrelevant results persists
 
 jenY -- 2018-01-18 01:11
-README.md up to par 
+README.md up to par
 
 jenY -- 2018-01-20 14:30
 Working on advanced search function
@@ -134,3 +134,9 @@ jenY -- 2018-01-21 15:30
 Added eventpage for displaying an event
 Added path for event
 Testing out with retrieving all paramters from form at once
+
+jawadulK -- 2018-01-24 1:21
+Implemented geolocation into search and advanced search
+  Uses javascript geolocation functions
+Fixed results being random, now results based off query
+Added error for if no events are found
