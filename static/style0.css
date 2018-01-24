@@ -8,48 +8,48 @@
 body
 {
     padding-top:50px;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Verdana', sans-serif;
+    background-color: white;
     position:relative;
 }
+
 .large
 {
     background-color:white;
-    filter: alpha(opacity=90);
+    filter: alpha(opacity=80);
     opacity: .8;
-    padding:30px;
-    width:900px;
-    font-size:30px;
-}
-.container
-{
-    padding:50px;
+    padding:20px;
+    width:600px;
+    font-size:25px;
 }
 
 .jumbotron
 {
-    background-image:url(../static/film.jpg);
     background-position: 0% 25%;
     background-size: cover;
     background-repeat: repeat;
-    height:800px;
-    padding-top:50px;
-    padding-left:50px;
+    height:600px;
+    padding-top:25px;
+    padding-left:25px;
 }
+
 .scrollable-menu {
     height: auto;
     max-height: 200px;
     overflow-x: hidden;
 }
+
 .navbar navbar-inverse
 {
-    color:#A7A5C6;
-    font-family: 'Ubuntu', sans-serif;
+    color:white;
+    font-family: 'Verdana', sans-serif;
 }
 
 ul.nav-pills {
     top: 20px;
     position: fixed;
 }
+
 div.col-sm-9 div {
     height: 250px;
     font-size: 28px;

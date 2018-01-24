@@ -1,26 +1,40 @@
 {% extends "base.html" %}
-
 {% block content %}
+
+<style>
+  body {
+    background-color: #E8E8E8;
+  }
+</style>
+
 <div class = "container" style="align:left">
-  <h1> Search Results </h1>
+  <h1> <u> Search Results </u> </h1>
   {% if message is defined %}
   <p class = "large">{{message}}</p>
   {% endif %}
-  <br>
-  {% if d is defined %}
   {% for i in d %}
-  <form action = {{i["url"]}} method = 'POST' style="text-align:left">
-    <h3> {{ i["name"]["text"]}} </h3>
-    <p>{{i["status"]}}</p>
-   <!-- <p>{{i["venue_id"]["address"]}}</p><br>-->
-    <p>{{ i["description"]["text"] }} </p>
-    <input type = "hidden" name = "title" value = {{ i[0] }}>
-    <input type = "hidden" name = "url" value = {{ i[1] }}>
-    <a href = {{i["url"]}}><button type="submit" class="btn btn-info">More Info</button></a>
-    <br><br>
+  <form action = "/event" method = "POST" style = "text-align:left">
+    <h3> {{i["name"]}}</h3>
+    <p> Status: {{i["status"]}} <br>
+      Timezone: {{i["tzone"]}} <br>
+      Start: {{i["dStart"]}} at {{i["tStart"]}} <br>
+      End: {{i["dEnd"]}} at {{i["tEnd"]}}
+    </p>
+    <input type = "hidden" name = "venue" value = {{i["venue"]}}>
+    <input type = "hidden" name = "logo" value = {{i["logo"]}}>
+    <input type = "hidden" name = "url" value = {{i["url"]}}>
+    <input type = "hidden" name = "status" value = {{i["status"]}}>
+    <input type = "hidden" name = "name" value = {{i["name"]}}>
+    <input type = "hidden" name = "descr" value = {{i["description"]}}>
+    <input type = "hidden" name = "tzone" value = {{i["tzone"]}}>
+    <input type = "hidden" name = "dS" value = {{i["dStart"]}}>
+    <input type = "hidden" name = "tS" value = {{i["tStart"]}}>
+    <input type = "hidden" name = "dE" value = {{i["dEnd"]}}>
+    <input type = "hidden" name = "tE" value = {{i["tEnd"]}}>
+    <button type = "submit" class = "btn btn-info"> More Info </button>
   </form>
+  <br> <br>
   {% endfor %}
-  {% endif %}
-  </div>
 
+</div>
 {% endblock content %}
