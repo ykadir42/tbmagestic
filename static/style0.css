@@ -18,9 +18,9 @@ body
     background-color:white;
     filter: alpha(opacity=80);
     opacity: .8;
-    padding:30px;
+    padding:20px;
     width:600px;
-    font-size:30px;
+    font-size:25px;
 }
 
 .jumbotron
@@ -29,8 +29,8 @@ body
     background-size: cover;
     background-repeat: repeat;
     height:600px;
-    padding-top:50px;
-    padding-left:50px;
+    padding-top:25px;
+    padding-left:25px;
 }
 
 .scrollable-menu {

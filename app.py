@@ -16,6 +16,22 @@ def remove_space(text):
             index += 1
     return text
 
+def dateConversion(string):
+    year = string[:4]
+    month = string[5:7]
+    day = string[8:]
+    return month + "-" + day + "-" + year
+
+def timeConversion(string):
+    hours = int(string[:2])
+    minute = string[3:5]
+    tOfDay = 'am'
+    if hours > 12:
+        hours = hours - 12
+        tOfDay = 'pm'
+    hour = str(hours)
+    return hour + ":" + minute + " " + tOfDay
+
 @app.route("/")
 def root():
     return render_template("index.html")
@@ -41,9 +57,12 @@ def advancedresults():
 @app.route("/event", methods=['GET', 'POST'])
 def event():
     args = request.form.to_dict()
-    print "\n\nARGS COMIN THRU \n\n"
-    print args
+    args['dS'] = dateConversion(args['dS'])
+    args['dE'] = dateConversion(args['dE'])
+    args['tS'] = timeConversion(args['tS'])
+    args['tE'] = timeConversion(args['tE'])
     return render_template("eventpage.html", e = args)
+
 
 #login authentication
 @app.route('/login', methods=['GET', 'POST'])

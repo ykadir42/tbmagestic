@@ -1,7 +1,40 @@
 {% extends "base.html" %}
-
 {% block content %}
+<style>
 
+  h1 {
+    background-color: #E8E8E8;
+    font-size: 50px;
+    padding-top: 25px;
+  }
+
+  body {
+    background-color: #E8E8E8;
+    padding-left: 25px;
+    font-size: 20px;
+    padding-top: 25px;
+  }
+
+  .button {
+    background-color: white;
+    color: black;
+    border: 3px solid black;
+    text-align: center;
+    font-size: 30px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+
+  .button:hover {
+    background-color: black;
+    color: white;
+  }
+</style>
+
+<h1> <u> Search Results </u> </h1>
+<br>
+<button class="button"><a href={{e['url']}}>Buy Tickets Here</a></button> <br> <br>
+Starting on {{e['dS']}} @ {{e['tS']}}<br> <br>
+Ending on {{e['dE']}} @ {{e['tE']}} <br> <br>
 {{e}}
-
 {% endblock content %}
