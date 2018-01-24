@@ -1,7 +1,10 @@
 # TB Mage Stic
 
 ## Roster
-Jawadul Kadir, Eugene Thomas, Queenie Xiang, and Jen Yu
+Jawadul Kadir - Project Manager
+Eugene Thomas - Front-end
+Queenie Xiang - Advanced Search
+Jen Yu - 
 
 # e.g.
 This website is meant to integrate both Google Maps APIs and the Eventbrite API in order to create a comprehensive and useful application for users to find events and activities near them. Features include being able to see popular events near you, and finding events near an inputted address. Additionally, directions and an embedded map are provided on event pages, reducing the extra hassle of having to input an address into the Google Maps site. If time allows, we hope to implement an interactive map element, where using AJAX, a user can walk around the city and have a map update simultaneously with events near her/his current location.
@@ -45,8 +48,8 @@ $ cd tbmagestic
 
 Add your API keys to the ```key.txt``` file, in this format:
 ```
-[Eventbrite API Key FRIST]
-[Google Maps API Key SNECOD]
+[Eventbrite API Key FIRST]
+[Google Maps API Key SECOND]
 ```
 Run the application!
 ```
