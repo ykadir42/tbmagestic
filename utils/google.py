@@ -7,7 +7,7 @@ details_base="https://maps.googleapis.com/maps/api/place/details/json?"
 f = open("key.txt", "r")
 txt = f.read()
 key = txt.split('\n')[1]
-print key
+#print key
 
 '''
 access_url(query) - Function to pull data from the Eventbrite API

@@ -184,6 +184,7 @@ def event():
 	args['dE'] = dateConversion(args['dE'])
 	args['tS'] = timeConversion(args['tS'])
 	args['tE'] = timeConversion(args['tE'])
+	print args
 	return render_template("eventpage.html", e = args)
 
 

@@ -33,47 +33,47 @@
 			</div>
 		</form>
 		<script type="text/javascript">
-		function search(position){
-			console.log("starting search");
-			console.log(position);
-			var form = document.forms["search-form"];
-			var longitude = document.createElement("input");
-			longitude.type = "hidden";
-			longitude.name = "longitude";
-			longitude.value = position.coords.longitude;
-			form.appendChild(longitude);
-			var latitude = document.createElement("input");
-			latitude.type = "hidden";
-			latitude.name = "latitude";
-			latitude.value = position.coords.latitude;
-			form.appendChild(latitude);
-			form.submit();
-		};
+			function search(position){
+				console.log("starting search");
+				console.log(position);
+				var form = document.forms["search-form"];
+				var longitude = document.createElement("input");
+				longitude.type = "hidden";
+				longitude.name = "longitude";
+				longitude.value = position.coords.longitude;
+				form.appendChild(longitude);
+				var latitude = document.createElement("input");
+				latitude.type = "hidden";
+				latitude.name = "latitude";
+				latitude.value = position.coords.latitude;
+				form.appendChild(latitude);
+				form.submit();
+			};
 
-		var error = function(){
-			console.log("error acquiring location");
-			form.submit();
-		}
-
-		var searchButton = function(){
-			console.log("staring searchButton");
-			if (navigator.geolocation) {
-				console.log("yes");
-				navigator.geolocation.getCurrentPosition(search, () => console.log("error"));
-			} else {
-				console.log("Geolocation not supported.");
+			var error = function(){
+				console.log("error acquiring location");
+				form.submit();
 			}
-		};
 
-		var searchB = document.getElementById("search-button");
-		searchB.addEventListener('click', searchButton);
+			var searchButton = function(){
+				console.log("starting searchButton");
+				if (navigator.geolocation) {
+					console.log("yes");
+					navigator.geolocation.getCurrentPosition(search, () => console.log("error"));
+				} else {
+					console.log("Geolocation not supported.");
+				}
+			};
+
+			var searchB = document.getElementById("search-button");
+			searchB.addEventListener('click', searchButton);
 		</script>
 	</div>
 </nav>
 <footer class="navbar-default navbar-fixed-bottom">
 	<div class="container-fluid" style="background-color: white; font-size: 20px; padding:20px;">
 		<center>
-			<span><b>Created by TB Magestic</b></span>
+			<span><b>Created by TB Mage Stic</b></span>
 		</center>
 	</div>
 </footer>
