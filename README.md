@@ -13,7 +13,7 @@ Jen Yu - Advanced Search, Google API, Event Information Page
 This website is meant to integrate both Google Maps APIs and the Eventbrite API in order to create a comprehensive and useful application for users to find events and activities near them. Features include being able to see popular events near you, and finding events near an inputted address.
 
 ### Watch video demostration:
-https://youtu.be/K1IDf_mYfjg 
+https://youtu.be/HoWT67pDbqA
 
 ### Launch Instructions
 
