@@ -92,7 +92,7 @@ def return_user_info():
                         saved_searches = database.return_history(username)
                         return render_template("user_info.html", text = text, history=saved_searches[username]['history'])
                 except:
-                        return render_template("user_info.html", text = text, history="No saved searches")
+                        return render_template("user_info.html", text = text, history="")
                         
         
         
