@@ -4,8 +4,10 @@
     {{address}}
     {{query}}
     {{radius}} <br>
-    
+
     Results: <br>
+	{% if d is defined %}
     {{d}}
+	{% endif %}
   </body>
 </html>
