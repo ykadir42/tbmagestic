@@ -146,5 +146,7 @@ Added error for if no events are found
 
 queenieX -- 2018-01-24 5:10
 Added a user system with a data base -- stores user search history
+Added a login / logout system 
+Added a user-info page 
 Created video-demo
 
