@@ -136,7 +136,7 @@ Added path for event
 Testing out with retrieving all paramters from form at once
 
 queenieX -- 2018-01-22 10:45
-Added a synonym filtering system to refine the advanced search results
+Added a synonym filtering system to refine the advanced search results [Removed due to enhancement of advanced search by Jawad below]
 
 jawadulK -- 2018-01-24 1:21
 Implemented geolocation into search and advanced search
