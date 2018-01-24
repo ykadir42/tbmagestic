@@ -146,7 +146,34 @@ Added error for if no events are found
 
 queenieX -- 2018-01-24 5:10
 Added a user system with a data base -- stores user search history
-Added a login / logout system 
-Added a user-info page 
+Added a login / logout system
+Added a user-info page
 Created video-demo
 
+thomasE -- 2018-01-10 13:17 to 2018-01-24 8:00
+Worked on the front end, ensuring that every single project looked as nice as possible.
+At times, I was tasked to also work on some back end issues, such as utilizing the APIs
+to this fullest abilities. Also, I was tasked to write multiple methods that made the overall
+experience of working with the sometimes difficult-to-work-with EventBrite API a little more
+user-friendly. These included timeConversion and dateConversion which took their international date
+and month formatting, changing it to a standard time formatting. Two issues that our group had
+were time management, and especially making sure that we didn't have a 100% understanding of the
+EventBrite API since it is very difficult to use at times. One issue that I had personally throughout
+was time management, but also the fact that I was not that optimal in understanding how to truly
+beautify the front end of the website, I usually don't do front end and this was a big step out of
+my comfort zone. Also, as you can see by the devlog entry, I had a complete mental lapse and I did
+not remember to fill in my devlog for the last couple of weeks. But overall what I did in the last two
+weeks was...
+1. Learn about the APIs we were working with. In the event that I would have to format the dictionaries,
+   or even write methods where I had to work with the APIs, that strong foundation in the APIs was important
+   to doing great things in this project.
+2. Did some research on front end programming, before this course, I had never worked with BootStrap or Foundation.
+   Thus this task and this project really was a step out of my comfort zone in finding things to understand about
+   BootStrap, in order to make the prettiest project possible.
+3. Began coding the front end. The hardest part of this was starting the project, I knew that it would be a struggle
+   for me to come up with a good design, so we tried multiple times, and scrapped it multiple times. Whether it was
+   going through Coolors to see the perfect color scheme, or moving buttons left and right and back again, these
+   seemingly-mundane traits of our project proved very important in having a pretty project overall.
+Once I continued coding the front end, this is where I started using knowledge from the API to work with the dictionaries,
+write some methods in app.py to make my and my back end group members' lives easier. Overall, this project was a
+learning experience, teaching me about front end programming, furthering my CS journey. 
